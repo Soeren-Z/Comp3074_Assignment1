@@ -48,36 +48,36 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart: Main");
+        Log.d(TAG, "onStart: Detail");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume: Main");
+        Log.d(TAG, "onResume: Detail");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause: Main");
+        Log.d(TAG, "onPause: Detail");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG, "onStop: Main");
+        Log.d(TAG, "onStop: Detail");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG, "onRestart: Main");
+        Log.d(TAG, "onRestart: Detail");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "onDestroy: Main");
+        Log.d(TAG, "onDestroy: Detail");
     }
 }
