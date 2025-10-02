@@ -7,13 +7,40 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Number of Hours Worked:" />
+
+        <EditText
+            android:id="@+id/hoursWorked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hours Worked"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Pay Rate:" />
+
+        <EditText
+            android:id="@+id/payRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pay Rate" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:onClick="confirmPay"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
