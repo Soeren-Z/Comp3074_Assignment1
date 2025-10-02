@@ -52,12 +52,13 @@ public class MainActivity extends AppCompatActivity {
     }
     private void calculatePay(double hoursWorked, double payRate) {
         double grossPay;
+        double overtimePay = 0;
         if(hoursWorked <= 40) {
             grossPay = hoursWorked * payRate;
         } else {
+            overtimePay = (hoursWorked - 40) * payRate * 1.5;
             grossPay = (40 * payRate) + ((hoursWorked - 40) * payRate * 1.5);
         }
-        double overtimePay = (hoursWorked - 40) * payRate * 1.5;
         double tax = grossPay * 0.8;
         double netPay = grossPay - tax;
         Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
