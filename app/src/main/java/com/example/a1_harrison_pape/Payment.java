@@ -23,4 +23,8 @@ public class Payment {
         this.tax = tax;
         this.netPay = netPay;
     }
+    @Override
+    public String toString() {
+        return "Gross Pay: " + grossPay + "\n" + "Overtime Pay: " + overtimePay + "\n" + "Tax: " + tax + "\n" + "Net Pay: " + netPay;
+    }
 }

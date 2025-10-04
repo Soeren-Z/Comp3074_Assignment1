@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,8 +15,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetailActivity extends AppCompatActivity {
     public static final String TAG = "Activity_Lifecycle";
+    private ListView listView;
     AppDatabase db;
 
     @Override
@@ -32,7 +38,18 @@ public class DetailActivity extends AppCompatActivity {
             return insets;
         });
 
+        listView = findViewById(R.id.paymentList);
         db = AppDatabase.getInstance(this);
+
+        List<Payment> paymentList = db.paymentDao().getAllPayments();
+        ArrayList<String> displayList = new ArrayList<>();
+        for(Payment payment : paymentList) {
+            displayList.add(payment.toString());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1, displayList
+        );
+        listView.setAdapter(adapter);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
