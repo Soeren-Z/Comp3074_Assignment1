@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class DetailActivity extends AppCompatActivity {
     public static final String TAG = "Activity_Lifecycle";
+    AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class DetailActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        db = AppDatabase.getInstance(this);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

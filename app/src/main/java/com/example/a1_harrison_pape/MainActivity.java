@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText hoursWorked;
     private EditText payRate;
 
+    AppDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         hoursWorked = findViewById(R.id.hoursWorked);
         payRate = findViewById(R.id.payRate);
+
+        db = AppDatabase.getInstance(this);
     }
     public void confirmPay(View view) {
         double hoursWorkedF = TryParseDouble(hoursWorked.getText().toString().trim());
@@ -67,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
             overtimePay = (hoursWorked - 40) * payRate * 1.5;
             grossPay = (40 * payRate) + ((hoursWorked - 40) * payRate * 1.5);
         }
-        double tax = grossPay * 0.8;
+        double tax = grossPay * 0.18;
         double netPay = grossPay - tax;
+        db.paymentDao().insert(new Payment(grossPay, overtimePay, tax, netPay));
         Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
     }
     private double TryParseDouble(String str) {
