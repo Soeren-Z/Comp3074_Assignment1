@@ -90,9 +90,9 @@ public class MainActivity extends AppCompatActivity {
     private void displayText(double grossPay, double overtimePay, double tax, double netPay) {
         displayText.setText(
                 "Gross Pay: " + grossPay + "\n" +
-                "Overtime Pay :" + overtimePay + "\n" +
+                "Overtime Pay: " + overtimePay + "\n" +
                 "Tax: " + tax + "\n" +
-                "Net Pay " + netPay);
+                "Net Pay: " + netPay);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

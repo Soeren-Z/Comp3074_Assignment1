@@ -66,6 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/container"
-        android:layout_marginBottom="200dp"/>
+        android:layout_marginBottom="200dp"
+        style="@style/textDisplay"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
