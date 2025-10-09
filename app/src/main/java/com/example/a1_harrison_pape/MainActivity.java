@@ -18,6 +18,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.NumberFormat;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText hoursWorked;
     private EditText payRate;
     private TextView displayText;
+    NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
 
     AppDatabase db;
 
@@ -89,10 +91,10 @@ public class MainActivity extends AppCompatActivity {
     }
     private void displayText(double grossPay, double overtimePay, double tax, double netPay) {
         displayText.setText(
-                "Gross Pay: " + grossPay + "\n" +
-                "Overtime Pay: " + overtimePay + "\n" +
-                "Tax: " + tax + "\n" +
-                "Net Pay: " + netPay);
+                "Gross Pay: " + currencyFormat.format(grossPay) + "\n" +
+                "Overtime Pay: " + currencyFormat.format(overtimePay) + "\n" +
+                "Tax: " + currencyFormat.format(tax) + "\n" +
+                "Net Pay: " + currencyFormat.format(netPay));
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
