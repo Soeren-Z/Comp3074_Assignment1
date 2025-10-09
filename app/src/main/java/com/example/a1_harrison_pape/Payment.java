@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.text.NumberFormat;
+
 @Entity(tableName = "payments")
 public class Payment {
     @PrimaryKey(autoGenerate = true)
@@ -25,10 +27,12 @@ public class Payment {
     }
     @Override
     public String toString() {
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+
         return "Payment Number: " + id + "\n" +
-                "Gross Pay: " + grossPay + "\n" +
-                "Overtime Pay: " + overtimePay + "\n" +
-                "Tax: " + tax + "\n" +
-                "Net Pay: " + netPay;
+                "Gross Pay: " + currencyFormat.format(grossPay) + "\n" +
+                "Overtime Pay: " + currencyFormat.format(overtimePay) + "\n" +
+                "Tax: " + currencyFormat.format(tax) + "\n" +
+                "Net Pay: " + currencyFormat.format(netPay);
     }
 }
