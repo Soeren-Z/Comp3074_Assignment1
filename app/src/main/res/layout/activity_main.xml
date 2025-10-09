@@ -27,7 +27,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/enter_number_of_hours_worked" />
+            android:text="@string/enter_number_of_hours_worked"
+            style="@style/inputLabel" />
 
         <EditText
             android:id="@+id/hoursWorked"
@@ -39,7 +40,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/enter_pay_rate" />
+            android:text="@string/enter_pay_rate"
+            style="@style/inputLabel"/>
 
         <EditText
             android:id="@+id/payRate"
