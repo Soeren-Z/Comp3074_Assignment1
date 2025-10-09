@@ -49,10 +49,19 @@
             android:hint="@string/pay_rate" />
 
         <Button
+            android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/submit"
             android:onClick="confirmPay"/>
+
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/displayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        android:layout_marginBottom="200dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

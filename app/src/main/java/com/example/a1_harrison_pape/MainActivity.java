@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "Activity_Lifecycle";
     private EditText hoursWorked;
     private EditText payRate;
+    private TextView displayText;
 
     AppDatabase db;
 
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         hoursWorked = findViewById(R.id.hoursWorked);
         payRate = findViewById(R.id.payRate);
+        displayText = findViewById(R.id.displayText);
 
         db = AppDatabase.getInstance(this);
     }
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         double tax = grossPay * 0.18;
         double netPay = grossPay - tax;
         db.paymentDao().insert(new Payment(grossPay, overtimePay, tax, netPay));
+        displayText(grossPay, overtimePay, tax, netPay);
         Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
     }
     private double TryParseDouble(String str) {
@@ -82,6 +86,13 @@ public class MainActivity extends AppCompatActivity {
         } catch(NumberFormatException e) {
             return -1;
         }
+    }
+    private void displayText(double grossPay, double overtimePay, double tax, double netPay) {
+        displayText.setText(
+                "Gross Pay: " + grossPay + "\n" +
+                "Overtime Pay :" + overtimePay + "\n" +
+                "Tax: " + tax + "\n" +
+                "Net Pay " + netPay);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
