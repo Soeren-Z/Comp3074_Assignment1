@@ -35,7 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="@string/hours_worked"/>
+            android:hint="@string/hours_worked"
+            style="@style/inputLabel" />
 
         <TextView
             android:layout_width="match_parent"
@@ -48,7 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="@string/pay_rate" />
+            android:hint="@string/pay_rate"
+            style="@style/inputLabel"/>
 
         <Button
             android:id="@+id/submit"
