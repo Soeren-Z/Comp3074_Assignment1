@@ -11,6 +11,6 @@ public interface PaymentDao {
     @Insert
     void insert(Payment payment);
 
-    @Query("SELECT * FROM payments")
+    @Query("SELECT * FROM payments ORDER BY id DESC")
     List<Payment> getAllPayments();
 }
